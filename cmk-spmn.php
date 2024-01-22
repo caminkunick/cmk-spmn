@@ -3,11 +3,12 @@
 Plugin Name: CamINKu Simple Manage
 Plugin URI:
 Description: CamINKu simple manager api
-Version: 1.0
+Version: 1.0.0
 Author: CamINKu
 Author URI: https://github.com/caminkunick
 License: GPLv2 or later
 Text Domain: cmk-spmn
+Last Updated: 2024-01-22 16:16:04
 */
 
 require plugin_dir_path(__FILE__) . 'puc/plugin-update-checker.php';

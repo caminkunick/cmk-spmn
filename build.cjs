@@ -18,7 +18,20 @@ pluginJson.last_updated = nowString;
 // write plugin.json
 fs.writeFileSync("./plugin.json", JSON.stringify(pluginJson, null, 2));
 
-// .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock plugin.json bun.lockb build.js
+// read cmk-spmn.php to string
+let cmkSpmn = fs.readFileSync("./cmk-spmn.php", "utf8");
+// find version
+const versionRegex = /Version:.*$/gm;
+const version = `Version: ${packageJson.version}`;
+// replace version
+cmkSpmn = cmkSpmn.replace(versionRegex, version);
+// find last_updated
+const lastUpdatedRegex = /Last Updated:.*$/gm;
+const lastUpdated = `Last Updated: ${nowString}`;
+// replace last_updated
+cmkSpmn = cmkSpmn.replace(lastUpdatedRegex, lastUpdated);
+// write cmk-spmn.php
+fs.writeFileSync("./cmk-spmn.php", cmkSpmn);
 
 // bundle
 const excludes = [
