@@ -1,0 +1,16 @@
+{
+  "name": "cmk-spmn",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "bundle": "node build.cjs"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "dir-archiver": "^2.1.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
