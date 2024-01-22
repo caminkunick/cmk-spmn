@@ -623,7 +623,7 @@ class api {
   // ANCHOR - main
   static function main(){
     // allow access from javascript fetch
-    header('Access-Control-Allow-Origin: http://localhost:3000, https://dbh-direct.vercel.app');
+    header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE');
     header("Content-Type: application/json; charset=UTF-8");
 
