@@ -4,7 +4,7 @@
   "homepage": "https://github.com/caminkunick/cmk-spmn",
   "requires": "4.5",
   "tested": "4.8",
-  "last_updated": "2024-01-22 17:09:12",
+  "last_updated": "2024-01-22 18:11:56",
   "upgrade_notice": "Here's why you should upgrade...",
   "author": "CamINKu",
   "author_homepage": "https://github.com/caminkunick",
@@ -26,5 +26,5 @@
   "num_ratings": 0,
   "downloaded": 0,
   "active_installs": 0,
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
