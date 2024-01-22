@@ -96,7 +96,7 @@ class table {
       echo '<th scope="row" class="check-column"><input type="checkbox" /></th>';
     }
     foreach($this->columns as $key => $value) {
-      echo "<td class='column-$key'>".($row[$key] ?? '')."</td>";
+      echo "<td class='column-$key'>".($row[$key] ?: '')."</td>";
     }
     echo '</tr>';
   }
@@ -305,7 +305,7 @@ class PostCRUD {
     $post = array(
       'post_title' => $data['title'],
       'post_content' => $data['content'],
-      'post_status' => $data['status'] ?? 'publish',
+      'post_status' => $data['status'] ?: 'publish',
       'post_type' => 'post',
       'post_date' => $date,
       'post_modified' => $date
@@ -484,7 +484,7 @@ class media {
   static function main(){
     $method = $_SERVER['REQUEST_METHOD'];
 
-    $token = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+    $token = $_SERVER['HTTP_AUTHORIZATION'] ?: '';
 
     // check token
     if(!$token) self::response(false, 'Token not found');
@@ -498,14 +498,14 @@ class media {
 
     switch($method){
       case "GET":
-        self::get($post["id"] ?? $_REQUEST['id'] ?? '');
+        self::get($post["id"] ?: $_REQUEST['id'] ?: '');
         break;
       case "POST":
       case "PUT":
         self::create();
         break;
       case "DELETE":
-        self::delete($post["id"] ?? $_REQUEST['id'] ?? '');
+        self::delete($post["id"] ?: $_REQUEST['id'] ?: '');
         break;
       default:
         api::response(false, "Invalid method ($method)");
@@ -529,9 +529,9 @@ class api {
   }
 
   static function type_post(){
-    $method = $_POST["method"] ?? "POST";
+    $method = $_POST["method"] ?: "POST";
 
-    $token = $_POST["token"] ?? '';
+    $token = $_POST["token"] ?: '';
 
     // check token
     if(!$token) self::response(false, 'Token not found');
@@ -545,7 +545,7 @@ class api {
     switch($method){
       case "GET":
       case "POST":
-        $id = $_REQUEST['id'] ?? '';
+        $id = $_REQUEST['id'] ?: '';
         PostCRUD::get($id);
         break;
       case "PUT":
@@ -555,7 +555,7 @@ class api {
         PostCRUD::update($post);
         break;
       case "DELETE":
-        $id = $_REQUEST['id'] ?? '';
+        $id = $_REQUEST['id'] ?: '';
         PostCRUD::delete($id);
         break;
       default:
@@ -582,7 +582,7 @@ class api {
         $cat = wp_insert_category(array(
           'cat_name' => $_POST['name'],
           'category_nicename' => $nicename,
-          'category_parent' => $_POST['parent'] ?? 0
+          'category_parent' => $_POST['parent'] ?: 0
         ));
         if(!$cat){
           self::response(false, 'Failed to create category');
@@ -602,9 +602,9 @@ class api {
         $cat = wp_update_category(array(
           'cat_ID' => $_POST['id'],
           'cat_name' => $_POST['name'],
-          'category_nicename' => $_POST['slug'] ?? sanitize_title($_POST['name']),
-          'category_description' => $_POST['description'] ?? '',
-          'category_parent' => $_POST['parent'] ?? 0
+          'category_nicename' => $_POST['slug'] ?: sanitize_title($_POST['name']),
+          'category_description' => $_POST['description'] ?: '',
+          'category_parent' => $_POST['parent'] ?: 0
         ));
         if(!$cat){
           self::response(false, 'Failed to update category');
@@ -628,7 +628,7 @@ class api {
     header("Content-Type: application/json; charset=UTF-8");
 
     $post = json_decode(file_get_contents('php://input'), true);
-    $type = $post['type'] ?? $_REQUEST['type'] ?? '';
+    $type = $post['type'] ?: $_REQUEST['type'] ?: '';
 
     switch($type){
       case "post":
