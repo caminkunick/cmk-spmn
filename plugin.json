@@ -1,16 +1,16 @@
 {
-	"name": "My Example Plugin",
-	"version": "2.0",
+	"name": "CamINKu Simple Manage",
+	"version": "1.0.1",
 	"download_url": "http://example.com/updates/example-plugin.zip",
 
-	"homepage": "http://example.com/",
+	"homepage": "https://github.com/caminkunick/cmk-spmn",
 	"requires": "4.5",
 	"tested": "4.8",
-	"last_updated": "2017-01-01 16:17:00",
+	"last_updated": "2023-01-22 15:30:00",
 	"upgrade_notice": "Here's why you should upgrade...",
 
-	"author": "Janis Elsts",
-	"author_homepage": "http://example.com/",
+	"author": "CamINKu",
+	"author_homepage": "https://github.com/caminkunick",
 
 	"sections": {
 		"description": "(Required) Plugin description. Basic HTML can be used in all sections.",
