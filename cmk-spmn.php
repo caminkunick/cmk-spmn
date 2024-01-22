@@ -3,12 +3,12 @@
 Plugin Name: CamINKu Simple Manage
 Plugin URI:
 Description: CamINKu simple manager api
-Version: 1.0.2
+Version: 1.0.3
 Author: CamINKu
 Author URI: https://github.com/caminkunick
 License: GPLv2 or later
 Text Domain: cmk-spmn
-Last Updated: 2024-01-22 17:03:54
+Last Updated: 2024-01-22 17:09:12
 */
 
 // if php version > 7.0

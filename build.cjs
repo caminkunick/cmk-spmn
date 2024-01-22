@@ -57,6 +57,7 @@ const excludes = [
   "plugin.json",
   "bun.lockb",
   "build.cjs",
+  "test.json"
 ];
 
 const src = path.join(__dirname);
